@@ -1,6 +1,6 @@
 .hero {
     min-height: 100vh;
-    background: url('../../images/HeroSectionBGR.jpg') center center / cover no-repeat;
+    background: url('../../images/HeroSectionBGR.webp') center center / cover no-repeat;
     display: flex;
     align-items: center;
     position: relative;
