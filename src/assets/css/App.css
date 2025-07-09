@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800&display=swap');
+
+
+:root {
+  /* === BRAND COLORS === */
+  --primary-orange: #f39c12;
+  --primary-red: #d35400;
+  --primary-dark: #e67e22;
+
+  /* === GRADIENT COLORS === */
+  --gradient-primary: linear-gradient(135deg, #f39c12, #d35400);
+  --gradient-hero: linear-gradient(135deg, #f39c12 0%, #d35400 100%);
+  --gradient-light: linear-gradient(135deg, #fff8e1 0%, #fff3e0 100%);
+  --gradient-success: linear-gradient(135deg, #27ae60, #2ecc71);
+
+  /* === NEUTRAL COLORS === */
+  --white: #ffffff;
+  --off-white: #fefefe;
+  --light-gray: #f8f9fa;
+  --medium-gray: #666666;
+  --dark-gray: #333333;
+  --black: #000000;
+
+  /* === BACKGROUND COLORS === */
+  --bg-primary: #fefefe;
+  --bg-section: #fff8e1;
+  --bg-card: #ffffff;
+  --bg-dark: #333333;
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+
+  /* === TEXT COLORS === */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --text-white: #ffffff;
+  --text-brand: #f8dbac;
+  --text-accent: #f39c12;
+
+  /* === ACCENT COLORS === */
+  --accent-gold: #f39c12;
+  --accent-red: #c0392b;
+  --accent-green: #27ae60;
+  --accent-purple: #8e44ad;
+  --accent-blue: #3498db;
+
+  /* === SHADOW COLORS === */
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+  --shadow-brand: rgba(243, 156, 18, 0.4);
+
+  /* === BORDER COLORS === */
+  --border-light: #e8e8e8;
+  --border-medium: #dddddd;
+  --border-dark: #cccccc;
+
+  /* === HOVER STATES === */
+  --hover-orange: #e67e22;
+  --hover-red: #c0392b;
+  --hover-light: #f0f0f0;
+  --hover-dark: #2c3e50;
+
+  /* === OPACITY VARIANTS === */
+  --primary-orange-10: rgba(243, 156, 18, 0.1);
+  --primary-orange-20: rgba(243, 156, 18, 0.2);
+  --primary-orange-30: rgba(243, 156, 18, 0.3);
+  --primary-orange-50: rgba(243, 156, 18, 0.5);
+  --primary-orange-80: rgba(243, 156, 18, 0.8);
+
+  --primary-red-10: rgba(211, 84, 0, 0.1);
+  --primary-red-20: rgba(211, 84, 0, 0.2);
+  --primary-red-30: rgba(211, 84, 0, 0.3);
+  --primary-red-50: rgba(211, 84, 0, 0.5);
+  --primary-red-80: rgba(211, 84, 0, 0.8);
+
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-80: rgba(255, 255, 255, 0.8);
+  --white-90: rgba(255, 255, 255, 0.9);
+  --white-95: rgba(255, 255, 255, 0.95);
+  --white-98: rgba(255, 255, 255, 0.98);
+
+  --black-10: rgba(0, 0, 0, 0.1);
+  --black-20: rgba(0, 0, 0, 0.2);
+  --black-30: rgba(0, 0, 0, 0.3);
+  --black-50: rgba(0, 0, 0, 0.5);
+  --black-80: rgba(0, 0, 0, 0.8);
+
+  /* === SPECIAL COLORS === */
+  --success: #27ae60;
+  --warning: #f39c12;
+  --error: #e74c3c;
+  --info: #3498db;
+
+  /* === MENU ITEM COLORS === */
+  --menu-item-1: #d35400;
+  /* Gà đùi */
+  --menu-item-2: #f39c12;
+  /* Gà cánh */
+  --menu-item-3: #e67e22;
+  /* Combo */
+  --menu-item-4: #c0392b;
+  /* Cơm gà trộn */
+  --menu-item-5: #8e44ad;
+  /* Gà nướng */
+  --menu-item-6: #27ae60;
+  /* Chân gà */
+
+  /* === RATING COLORS === */
+  --star-filled: #f39c12;
+  --star-empty: #e8e8e8;
+
+  /* === BACKDROP COLORS === */
+  --backdrop-blur: rgba(255, 255, 255, 0.95);
+  --backdrop-modal: rgba(0, 0, 0, 0.8);
+
+  /* === ANIMATION COLORS === */
+  --ripple-color: rgba(255, 255, 255, 0.6);
+  --glow-color: rgba(243, 156, 18, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fefefe;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
