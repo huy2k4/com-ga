@@ -4,7 +4,22 @@ import '../../assets/css/Layouts/Header.css';
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1024
+  );
+
+  const isMobile = windowWidth < 768;
+  const isTablet = windowWidth >= 768 && windowWidth < 1024;
+  const isDesktop = windowWidth >= 1024;
+
   const navRef = useRef(null);
+
+  // Theo dõi thay đổi kích thước màn hình
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -13,10 +28,8 @@ export default function Header() {
       setScrolled(window.scrollY > 50);
     };
 
-    // Gắn sự kiện scroll
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Gắn sự kiện click cho các anchor link trong nav
     const anchorLinks = navRef.current?.querySelectorAll('a[href^="#"]') || [];
 
     const handleAnchorClick = (e) => {
@@ -26,7 +39,7 @@ export default function Header() {
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        setIsMobileMenuOpen(false); // Đóng menu mobile khi click link
+        setIsMobileMenuOpen(false);
         target.scrollIntoView({
           behavior: 'smooth',
           block: 'start',
@@ -37,14 +50,14 @@ export default function Header() {
 
     anchorLinks.forEach((a) => a.addEventListener('click', handleAnchorClick));
 
-    // Cleanup
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      anchorLinks.forEach((a) => a.removeEventListener('click', handleAnchorClick));
+      anchorLinks.forEach((a) =>
+        a.removeEventListener('click', handleAnchorClick)
+      );
     };
   }, []);
 
-  // Đóng menu mobile khi click outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navRef.current && !navRef.current.contains(event.target)) {
@@ -54,7 +67,7 @@ export default function Header() {
 
     if (isMobileMenuOpen) {
       document.addEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = 'hidden'; // Ngăn scroll khi menu mở
+      document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -70,16 +83,12 @@ export default function Header() {
   };
 
   return (
-    <nav
-      id="navbar"
-      ref={navRef}
-      className={scrolled ? 'scrolled' : ''}
-    >
+    <nav id="navbar" ref={navRef} className={scrolled ? 'scrolled' : ''}>
       <div className="container">
         <div className="nav-container">
           <a href="/" className="logo">Hồng Phát</a>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <ul className="nav-links desktop-nav">
             <li><a href="#home">Trang Chủ</a></li>
             <li><a href="#about">Giới Thiệu</a></li>
@@ -89,12 +98,12 @@ export default function Header() {
           </ul>
 
           {/* Desktop Order Button */}
-          <a href="tel:+84901234567" className="order-btn desktop-order">
+          <a href="tel:+8494175410" className="order-btn desktop-order">
             Đặt bàn
           </a>
 
           {/* Mobile Hamburger Menu */}
-          <button 
+          <button
             className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`}
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
@@ -115,12 +124,12 @@ export default function Header() {
               <li><a href="#testimonials">Đánh Giá</a></li>
               <li><a href="#contact">Liên Hệ</a></li>
             </ul>
-            
+
             <div className="mobile-order-section">
-              <a href="tel:+84901234567" className="mobile-order-btn">
+              <a href="tel:+84941754109" className="mobile-order-btn">
                 📞 Đặt bàn ngay
               </a>
-              <p className="mobile-phone">📱 0901 234 567</p>
+              <p className="mobile-phone">📱 0941 754 109</p>
             </div>
           </div>
         </div>

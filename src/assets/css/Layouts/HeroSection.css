@@ -66,9 +66,11 @@
 }
 
 .hero-title .highlight {
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 700;
     text-shadow:
-        0 5px 5px rgba(241, 241, 225, 0.3),
-        0 5px 4px rgba(255, 240, 180, 0.2);
+        0 1px 2px rgba(241, 241, 225, 0.3),
+        0 2px 1px rgba(255, 240, 180, 0.2);
     color: var(--text-brand);
 }
 
@@ -335,7 +337,9 @@
     .hero-title {
         font-size: 2.4rem;
     }
-    
+    .hero-title .highlight {
+        color: rgb(27, 21, 17);
+    }
     .hero-subtitle {
         font-size: 1.1rem;
     }

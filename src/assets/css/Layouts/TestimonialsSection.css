@@ -1,47 +1,208 @@
+
 .testimonials {
-            padding: 100px 0;
-            background: #f8f9fa;
-        }
-        
-        .testimonial-carousel {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            text-align: center;
-            display: none;
-        }
-        
-        .testimonial.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .testimonial-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #555;
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            color: #d35400;
-        }
-        
-        .testimonial-rating {
-            color: #f39c12;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
+    padding: 60px 0; /* Giảm padding cho mobile */
+    background: #f8f9fa;
+}
+
+.testimonial-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px; /* Thêm padding để tránh chạm viền màn hình */
+}
+
+.testimonial {
+    background: white;
+    padding: 30px; /* Giảm padding cho mobile */
+    border-radius: 15px; /* Giảm border radius cho mobile */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Giảm shadow cho mobile */
+    text-align: center;
+    display: none;
+    transition: transform 0.3s ease; /* Thêm transform transition */
+}
+
+.testimonial.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.tes-section-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 20px; /* Đảm bảo không sát viền trên mobile */
+}
+
+.tes-section-header h2 {
+font-family: "Gotu", sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    color: #d35400;
+    margin-bottom: 6px;
+    position: relative;
+    display: inline-block;
+}
+
+.tes-section-header p {
+    font-size: 1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Hiệu ứng underline cho tiêu đề */
+.tes-section-header h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.tes-section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #d35400;
+    border-radius: 3px;
+}
+
+/* Hiệu ứng khi hover trên desktop */
+@media (hover: hover) {
+    .testimonial:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial-text {
+    font-size: 1rem; /* Font size mặc định nhỏ hơn */
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.6; /* Tăng line-height cho dễ đọc */
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: #d35400;
+    font-size: 0.9rem; /* Giảm font size cho mobile */
+}
+
+.testimonial-rating {
+    color: #f39c12;
+    font-size: 1rem; /* Giảm font size cho mobile */
+    margin-bottom: 10px;
+}
+
+/* Navigation controls */
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: #d35400;
+}
+
+.carousel-arrow {
+    display: none; /* Ẩn mũi tên trên mobile */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.8);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.carousel-arrow.prev {
+    left: 10px;
+}
+
+.carousel-arrow.next {
+    right: 10px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .testimonials {
+        padding: 100px 0;
+    }
+    
+    .testimonial {
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    .section-header {
+        margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+        font-size: 2.5rem; /* Lớn hơn trên desktop */
+    }
+    
+    .section-header p {
+        font-size: 1.1rem;
+    }
+    .testimonial-text {
+        font-size: 1.2rem;
+    }
+    
+    .testimonial-author {
+        font-size: 1rem;
+    }
+    
+    .testimonial-rating {
+        font-size: 1.2rem;
+    }
+    
+    .carousel-arrow {
+        display: block; /* Hiển thị mũi tên trên desktop */
+    }
+}
+
+/* Đặc biệt cho màn hình rất nhỏ */
+@media (max-width: 480px) {
+    .section-header h2 {
+        font-size: 1.5rem; /* Nhỏ hơn trên màn hình rất nhỏ */
+        padding-bottom: 8px;
+    }
+    
+    .section-header h2::after {
+        width: 60px;
+        height: 2px;
+    }
+    
+    .section-header p {
+        font-size: 0.9rem;
+    }
+    .testimonial {
+        padding: 20px;
+    }
+    
+    .testimonial-text {
+        font-size: 0.9rem;
+    }
+}
